@@ -47,15 +47,15 @@ public class SecurityConfig extends WebSecurityConfiguration {
                         requestMatchers(PUBLIC_MATCHER).
                 permitAll().anyRequest().authenticated();
 
-        http.csrf().disable().cors().disable().formLogin().failureUrl("/login?error").loginPage("/login").permitAll().and().logout()
+        http.csrf().disable().cors().disable().formLogin().failureUrl("/login?error").defaultSuccessURL("/").loginPage("/login").permitAll().and().logout()
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/?logout").deleteCookies("remember-me")
                         .permitAll().and().rememberMe();
     }
 
-//    @Autowired
-//    public void configureGlobal(@Lazy AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
-//    }
+    @Autowired
+    public void configureGlobal(@Lazy AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
+    }
 
 }
 */

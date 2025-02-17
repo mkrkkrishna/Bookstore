@@ -15,10 +15,12 @@ import java.util.Set;
 
 @Entity
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id", nullable = false)
     private Long id;
+
     private String username;
     private String password;
     private String firstName;
@@ -26,6 +28,7 @@ public class User implements UserDetails {
 
     @Column(name="email", nullable = false)
     private String email;
+
     private String phone;
     private boolean enabled=true;
 
