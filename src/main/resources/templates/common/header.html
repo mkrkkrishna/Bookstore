@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="common-header">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -109,10 +109,14 @@
                   <a class="nav-link" href="#">SHOPPING CART</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" th:href="@{/login}">MY ACCOUNT</a>
+                  <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY ACCOUNT</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">LOGOUT</a>
+                  <a class="nav-link" sec:authorize="isAuthenticated()" href="@{/logout}">LOGOUT</a>
                 </li>
               </ul>
             </div>

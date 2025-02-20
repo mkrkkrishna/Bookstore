@@ -37,7 +37,10 @@ public class SecurityConfig extends WebSecurityConfiguration {
             "/js/**",
             "/image/**",
             "/",
-            "/myAccount",
+            "/newUser",
+            "/forgetPassword",
+            "/login",
+            "/fonts/**"
     };
 
     @Override
